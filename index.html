@@ -14,13 +14,14 @@
           <h2>Create Your Post</h2>
 
         <label for="username">Username:</label>
-        <input type="text" name="username" id="username"/>
+        <input type="text" name="username" id="username" onkeyup="updateUsername()"/>
         <label for="imageUpload">Upload Image:</label>
         <div class="upload-box">
           <input
             type="file"
             id="imageUpload"
             accept="image/*"
+            onchange="updateImage()"
           />
           <p class="upload-instructions">
             Choose an image to display in your post.
@@ -30,9 +31,10 @@
         <textarea
           id="postText"
           placeholder="What's on your mind?"
+          onkeyup="updatePostText()"
         ></textarea>
         <label for="imageStyle">Image Style:</label>
-        <select id="imageStyle">
+        <select id="imageStyle" onchange="updateImageStyle()">
           <option value="standard">Standard</option>
           <option value="full">Full Bleed</option>
           <option value="rounded">Rounded Corners</option>
@@ -47,12 +49,12 @@
         <div class="post-card">
           <div class="post-header">
             <div class="post-info">
-              <h3 class="profile-name">User Name</h3>
+              <h3 class="profile-name" id="previewUsername">User Name</h3>
               <span class="timestamp">Just now • 🌐</span>
             </div>
           </div>
 
-          <p class="post-text">Your post will show here...</p>
+          <p class="post-text" id="previewText">Your post will show here...</p>
 
           <div class="post-image-container">
             <img
